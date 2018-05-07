@@ -43,6 +43,9 @@ public class IndexBarDataHelperImpl implements IIndexBarDataHelper {
                     //利用TinyPinyin将char转成拼音
                     //查看源码，方法内 如果char为汉字，则返回大写拼音
                     //如果c不是汉字，则返回String.valueOf(c)
+                    if(target.substring(0,1).equals("腌"))
+                        pySb.append("YANCHILONGDIE");
+                    else
                     pySb.append(Pinyin.toPinyin(target.charAt(i1)).toUpperCase());
                 }
                 indexPinyinBean.setBaseIndexPinyin(pySb.toString());//设置城市名全拼音
